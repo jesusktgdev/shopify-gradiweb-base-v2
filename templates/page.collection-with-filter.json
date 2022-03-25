@@ -1,0 +1,13 @@
+{
+    "sections": {
+        "main": {
+            "type": "collection-with-filter",
+            "settings": {
+                "collection": "mi-coleccion"
+            }
+        }
+    },
+    "order": [
+        "main"
+    ]
+}
