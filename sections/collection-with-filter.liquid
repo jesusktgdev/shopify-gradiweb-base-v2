@@ -1,6 +1,23 @@
+{% assign selectectCol = collections[section.settings.collection] %}
+
+<pre>
+    {{ selectectCol.filters | json }}
+</pre>
+
+{%- for filter in selectectCol.filters -%}
+{%- endfor -%}
+
+<hr />
+
 <div>
     <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Placeat alias reprehenderit harum sunt voluptatibus quisquam ex eligendi unde molestiae quas repellat totam, enim officiis eos nisi quos facilis, necessitatibus sint.</p>
 </div>
+
+<pre>{{ collection.products | json }}</pre>
+
+<hr />
+
+{{ selectectCol }}
 
 {% schema %}
 {

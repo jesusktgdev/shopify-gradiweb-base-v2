@@ -82,6 +82,21 @@ class API {
   }
 
   /**
+   * Render section of collection
+   * **/
+
+  async renderShopifySectionCollection(params){
+    try {
+      
+      const { data: html } = await axios.get("?"+params);
+      return html;
+
+    } catch(error){
+      console.log(error);
+    }
+  }
+
+  /**
   * Render up to five sections with the use of Section Rendering API
   * @param {string} sections – section IDs
   * @returns {object} Includes pairs for each section ID and its

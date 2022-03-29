@@ -1,0 +1,51 @@
+{%- comment -%}
+    Filter controls
+
+{%- endcomment -%}
+
+{% assign filters = options_aviable %}
+{% assign page_url = url_page %}
+
+<script>
+    let onClearForm = function(){
+        let url = "{{ page_url }}";
+        window.location.href = url;
+    }
+</script>
+
+<div class="filter-controls-container">
+    <form id="filter-controls-form" action="{{ page_url }}" method="GET">
+        
+        <details id="filter-controls">
+            <summary class="filter-controls_btn">
+                Filtros {% render 'icon-caret' %}
+            </summary>
+            <div class="filter-controls_container">
+                {%- for filter in filters -%}
+                    <div class="filter-controls_item">
+                        <span class="filter-controls_title">{{ filter.label | escape }} </span>
+
+                        <div>
+                            <ul class="filter-controls_list">
+                            {%- for value in filter.values -%}
+                                <li>
+                                    <label>
+                                        <input {% if value.active %}checked{% endif %} type="checkbox" value="{{ value.value }}" name="{{ value.param_name }}" />
+                                        {{ value.label | escape }}
+                                    </label>
+                                </li>
+                            {%- endfor -%}
+                            </ul>
+                        </div>
+                    </div>
+                {%- endfor -%}
+            </div>
+            <input type="hidden" name="sections" value="collection-products" />
+            <div class="filter-controls_groupbtn">
+                <button type="submit">Filtrar</button>
+                <button type="button" onclick="onClearForm()">Limpiar</button>
+            </div>
+            
+        </details>
+    </form>
+</div>

@@ -79,6 +79,12 @@
       defer="defer"
     ></script>
 
+    {%- if request.page_type == "collection" -%}
+      <script
+        src="{{ 'collection.js' | asset_url }}"
+        defer></script>
+    {%- endif -%}
+
     <script
       src="{{ 'lazysizes.min.js' | asset_url }}"
       async="async"
